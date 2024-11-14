@@ -8,5 +8,9 @@ for i = 1:number_of_users
 end
 db.showStudents();
 file_name = 'db.txt'
+
 db.save_db_to_file(file_name)
+% save db to file
+
 db.load_from_file(file_name)
+% load db from file
