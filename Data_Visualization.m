@@ -1,32 +1,31 @@
-function Data_Visualization(database)
-   GPAs = [database.Students.GPA];
-   figure;
-   histogram(GPAs, 'BinWidth', 0.5);
-   title('GPA Distribution');
-   xlabel('GPA');
-   ylabel('Number of Students');
+function Data_Visualization(StudentDB) % plot students by gpa
+  GPA = [database.student_gpa];
+  figure;
+  histogram(student_gpa);
+  title('GPA Distribution');
+  xlabel('GPA');
+  ylabel('Number of Students');
 end
-function plotAverageGPAByMajor(database)
-   majors = unique({database.Students.Major});
-   avgGPA = zeros(1, length(majors));
-  
+function plot(StudentDB) % plot students by major
+  majors = unique({database.student_major});
+  avgGPA = zeros(1, length(majors));
    for i = 1:length(majors)
-       majorStudents = database.getStudentsByMajor(majors{i});
-       avgGPA(i) = mean([majorStudents.GPA]);
-   end
-  
+      majorStudents = database.getStudentsByMajor(majors{i});
+      avgGPA(i) = mean([majorStudents.GPA]);
+  end
    figure;
-   bar(avgGPA);
-   set(gca, 'XTickLabel', majors);
-   title('Average GPA by Major');
-   xlabel('Major');
-   ylabel('Average GPA');
+  bar(avgGPA);
+  set(gpa, 'XTickLabel', majors);
+  title('Average GPA by Major');
+  xlabel('Major');
+  ylabel('Average GPA');
 end
-function plotAgeDistribution(database)
-   ages = [database.Students.Age];
-   figure;
-   histogram(ages, 'BinWidth', 1);
-   title('Age Distribution of Students');
-   xlabel('Age');
-   ylabel('Number of Students');
+function plot(StudentDB) % plot students by age
+  ages = [database.student_age];
+  figure;
+  histogram(student_age);
+  title('Age Distribution of Students');
+  xlabel('Age');
+  ylabel('Number of Students');
 end
+
